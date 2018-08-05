@@ -38,6 +38,7 @@ GameObject:
   - component: {fileID: 4656956861186842}
   - component: {fileID: 95773597506997608}
   - component: {fileID: 143907104772315378}
+  - component: {fileID: 114486817953723286}
   m_Layer: 0
   m_Name: BlackKnight
   m_TagString: Player
@@ -2061,6 +2062,17 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &114486817953723286
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1071885932209198}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3eb12684b6b6dff46afc1cea49741462, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!137 &137092822840189936
 SkinnedMeshRenderer:
   m_ObjectHideFlags: 1
