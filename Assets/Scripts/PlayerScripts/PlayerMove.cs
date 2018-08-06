@@ -27,8 +27,44 @@ public class PlayerMove : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        this.MoveThePlayer();
-        this.m_charController.Move(this.m_v3PlayerMove);
+        this.CalculateHeight();
+        this.CheckIfFinishedMovement();
+    }
+
+    private bool IsGrounded()
+    {
+        return this.m_collisionFlags == CollisionFlags.CollidedBelow;
+    }
+
+    private void CalculateHeight()
+    {
+        if (this.IsGrounded())
+        {
+            this.m_fHeight = 0;
+        }
+        else
+        {
+            this.m_fHeight -= this.m_fGravity * Time.deltaTime;
+        }
+    }
+
+    private void CheckIfFinishedMovement()
+    {
+        if(!this.m_bFinishedMovement)//若移動尚未完成
+        {
+            if(!this.m_anim.IsInTransition(0) 
+                && !this.m_anim.GetCurrentAnimatorStateInfo(0).IsName("Stand")
+                && this.m_anim.GetCurrentAnimatorStateInfo(0).normalizedTime >= 0.8f)
+            {
+                this.m_bFinishedMovement = true;
+            }            
+        }
+        else
+        {
+            this.MoveThePlayer();
+            this.m_v3PlayerMove.y = this.m_fHeight * Time.deltaTime;
+            this.m_collisionFlags = this.m_charController.Move(this.m_v3PlayerMove);
+        }
     }
 
     private void MoveThePlayer()
@@ -36,12 +72,15 @@ public class PlayerMove : MonoBehaviour
         if (Input.GetMouseButtonDown(0))
         {
             Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+            Debug.Log("Ray資訊" + ray);
+            Debug.Log("滑鼠點到的畫面位子: " + Input.mousePosition);
             RaycastHit hit;
 
             if (Physics.Raycast(ray, out hit)) //如果射線有碰到東西，hit代表它所碰到的東西
             {
                 if (hit.collider is TerrainCollider)//如果射線觸及到的目標碰撞器為地形碰撞器
                 {
+                    Debug.Log("打在地形上的位子: " + hit.point);
                     this.m_fToPointDistance = Vector3.Distance(this.transform.position, hit.point);
 
                     if (this.m_fToPointDistance >= 1)
