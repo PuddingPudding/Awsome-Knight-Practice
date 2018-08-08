@@ -100,6 +100,7 @@ public class PlayerMove : MonoBehaviour
 
             transform.rotation = Quaternion.Slerp(this.transform.rotation,
                 Quaternion.LookRotation(v3TargetTemp - this.transform.position), 15 * Time.deltaTime);
+            //Slerp，讓該遊戲物件於後面的時間(15偵，基本上等於0.25秒)內轉到目標旋轉值
 
             this.m_v3PlayerMove = this.transform.forward * this.m_fMoveSpeed * Time.deltaTime;
 
