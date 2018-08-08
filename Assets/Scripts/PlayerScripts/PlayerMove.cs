@@ -50,7 +50,7 @@ public class PlayerMove : MonoBehaviour
 
     private void CheckIfFinishedMovement()
     {
-        if(!this.m_bFinishedMovement)//若移動尚未完成
+        if (!this.m_bFinishedMovement)//若移動尚未完成(目前來說不會進入這個判定)
         {
             if(!this.m_anim.IsInTransition(0) 
                 && !this.m_anim.GetCurrentAnimatorStateInfo(0).IsName("Stand")
@@ -59,7 +59,7 @@ public class PlayerMove : MonoBehaviour
                 this.m_bFinishedMovement = true;
             }            
         }
-        else
+        else //如果不是Stand(站立或移動)則給玩家移動權
         {
             this.MoveThePlayer();
             this.m_v3PlayerMove.y = this.m_fHeight * Time.deltaTime;
