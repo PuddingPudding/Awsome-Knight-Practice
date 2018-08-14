@@ -83,7 +83,7 @@ public class PlayerMove : MonoBehaviour
                     Debug.Log("打在地形上的位子: " + hit.point);
                     this.m_fToPointDistance = Vector3.Distance(this.transform.position, hit.point);
 
-                    if (this.m_fToPointDistance >= 1)
+                    if (this.m_fToPointDistance >= 0.5f)
                     {
                         this.m_bCanMove = true;
                         this.m_v3TargetPos = hit.point;
@@ -104,7 +104,7 @@ public class PlayerMove : MonoBehaviour
 
             this.m_v3PlayerMove = this.transform.forward * this.m_fMoveSpeed * Time.deltaTime;
 
-            if (Vector3.Distance(this.transform.position, this.m_v3TargetPos) <= 0.5f)
+            if (Vector3.Distance(this.transform.position, this.m_v3TargetPos) <= 0.2f)
             {
                 this.m_bCanMove = false;
             }
