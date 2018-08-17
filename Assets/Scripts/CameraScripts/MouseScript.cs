@@ -52,7 +52,6 @@ public class MouseScript : MonoBehaviour
             {
                 this.m_currentMousePoint.SetActive(false);
             }
-        }
-        
+        }        
     }
 }
