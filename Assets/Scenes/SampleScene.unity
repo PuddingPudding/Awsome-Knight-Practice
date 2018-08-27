@@ -2344,23 +2344,17 @@ GameObject:
   m_PrefabParentObject: {fileID: 1639632157131548, guid: f2edba063e55c594a97b560cad427003,
     type: 2}
   m_PrefabInternal: {fileID: 1417597787}
---- !u!143 &1417597789
-CharacterController:
+--- !u!114 &1417597789
+MonoBehaviour:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1417597788}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
   m_Enabled: 1
-  serializedVersion: 2
-  m_Height: 2
-  m_Radius: 0.2
-  m_SlopeLimit: 45
-  m_StepOffset: 0.3
-  m_SkinWidth: 0.08
-  m_MinMoveDistance: 0.001
-  m_Center: {x: 0, y: 1.03, z: 0}
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b8abc5947b6c9394dafdc14ceab0cd3f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1442487834
 GameObject:
   m_ObjectHideFlags: 0
@@ -3382,7 +3376,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4656956861186842, guid: a221f687063cba64388240e01266f957, type: 2}
       propertyPath: m_RootOrder
-      value: 2
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 114813127374753776, guid: a221f687063cba64388240e01266f957,
         type: 2}
