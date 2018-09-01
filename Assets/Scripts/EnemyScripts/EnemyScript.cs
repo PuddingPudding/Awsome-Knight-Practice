@@ -20,7 +20,7 @@ public class EnemyScript : MonoBehaviour
 {
     private float m_fAtkDistance = 1.5f;
     private float m_fAlrtAtkDistance = 8f;
-    private float m_fFollowDistance = 15f;
+    private float m_fFollowDistance = 15f; //與出生點相距的最大距離(巡邏範圍)
     private float m_fEnemyToPlayerDistance;
     private EnemyState m_enemyCurrentState = EnemyState.IDLE;
     private EnemyState m_enemyLastState = EnemyState.IDLE;
@@ -100,8 +100,8 @@ public class EnemyScript : MonoBehaviour
 
     EnemyState SetEnemyState(EnemyState _curState, EnemyState _lastState , float _fEnemyToPlayerDis)
     {
-        float fInitDis = Vector3.Distance(m_initialPos, this.transform.position);
-        _fEnemyToPlayerDis = Vector3.Distance(this.transform.position, m_playerTarget.position);
+        float fInitDis = Vector3.Distance(m_initialPos, this.transform.position); //計算出生點到自己現在位子的距離
+        _fEnemyToPlayerDis = Vector3.Distance(this.transform.position, m_playerTarget.position); //計算自己目前到玩家那的距離
 
         if(fInitDis > m_fFollowDistance)
         {
