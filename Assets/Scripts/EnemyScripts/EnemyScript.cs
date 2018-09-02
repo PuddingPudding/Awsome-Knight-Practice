@@ -103,18 +103,18 @@ public class EnemyScript : MonoBehaviour
         float fInitDis = Vector3.Distance(m_initialPos, this.transform.position); //計算出生點到自己現在位子的距離
         _fEnemyToPlayerDis = Vector3.Distance(this.transform.position, m_playerTarget.position); //計算自己目前到玩家那的距離
 
-        if(fInitDis > m_fFollowDistance)
+        if(fInitDis > m_fFollowDistance) //如果現在離初始出生點距離太遠(超出巡邏範圍)的話，將狀態改為往回走
         {
             _lastState = _curState;
             _curState = EnemyState.GOBACK;
         }
-        else if(_fEnemyToPlayerDis <= m_fAtkDistance)
+        else if(_fEnemyToPlayerDis <= m_fAtkDistance) //敵人到玩家間的距離小於等於攻擊距離，則狀態改為攻擊
         {
             _lastState = _curState;
             _curState = EnemyState.ATTACK; 
         }
-        else if(_fEnemyToPlayerDis >= m_fAlrtAtkDistance 
-            && _lastState == EnemyState.PAUSE || _lastState == EnemyState.ATTACK)
+        else if(_fEnemyToPlayerDis >= m_fAlrtAtkDistance  //敵人到玩家的距離還不至於警戒，且上個狀態是停滯或攻擊的話就先停滯
+            && (_lastState == EnemyState.PAUSE || _lastState == EnemyState.ATTACK))
         {
             _lastState = _curState;
             _curState = EnemyState.PAUSE;
@@ -124,7 +124,7 @@ public class EnemyScript : MonoBehaviour
             if(_curState !=  EnemyState.GOBACK || _lastState == EnemyState.WALK)
             {
                 _lastState = _curState;
-                _curState = EnemyState.PAUSE;
+                _curState = EnemyState.RUN;
             }            
         }
         else if(_fEnemyToPlayerDis > m_fAlrtAtkDistance 
