@@ -185,7 +185,7 @@ public class EnemyScript : MonoBehaviour
             Vector3 targetPos = new Vector3(m_initialPos.x, this.transform.position.y,
                 m_initialPos.z);
 
-            m_navAgent.SetDestination(targetPos);
+            m_navAgent.SetDestination(targetPos); //設定navAgent的下個目標點，他會按照navMesh(可行走材質)的分布來找出最短路徑
 
             if(Vector3.Distance(targetPos , m_initialPos) <= 3.5f)
             {
