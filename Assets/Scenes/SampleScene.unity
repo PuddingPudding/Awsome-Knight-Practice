@@ -1101,7 +1101,7 @@ GameObject:
   m_Layer: 0
   m_Name: 1
   m_TagString: Untagged
-  m_Icon: {fileID: 7174288486110832750, guid: 0000000000000000d000000000000000, type: 0}
+  m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
@@ -2395,6 +2395,21 @@ Prefab:
       propertyPath: m_Name
       value: Skeleton
       objectReference: {fileID: 0}
+    - target: {fileID: 114187990158365502, guid: f2edba063e55c594a97b560cad427003,
+        type: 2}
+      propertyPath: m_walkPoints.Array.data[0]
+      value: 
+      objectReference: {fileID: 659192000}
+    - target: {fileID: 114187990158365502, guid: f2edba063e55c594a97b560cad427003,
+        type: 2}
+      propertyPath: m_walkPoints.Array.data[1]
+      value: 
+      objectReference: {fileID: 1489242513}
+    - target: {fileID: 114187990158365502, guid: f2edba063e55c594a97b560cad427003,
+        type: 2}
+      propertyPath: m_walkPoints.Array.data[2]
+      value: 
+      objectReference: {fileID: 1974702647}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: f2edba063e55c594a97b560cad427003, type: 2}
   m_IsPrefabParent: 0
@@ -2409,26 +2424,12 @@ MonoBehaviour:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1417597788}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b8abc5947b6c9394dafdc14ceab0cd3f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &1417597794
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1417597788}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cb51d03dd16a8c144a6676d77af192e2, type: 3}
+  m_Script: {fileID: 11500000, guid: 09deec545a1826b41b5ca14cce3c51db, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_walkPoints:
-  - {fileID: 659192000}
-  - {fileID: 1489242513}
-  - {fileID: 1974702647}
+  m_fHealth: 100
 --- !u!1 &1442487834
 GameObject:
   m_ObjectHideFlags: 0
@@ -2576,7 +2577,7 @@ GameObject:
   m_Layer: 0
   m_Name: 2
   m_TagString: Untagged
-  m_Icon: {fileID: 7174288486110832750, guid: 0000000000000000d000000000000000, type: 0}
+  m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
@@ -3447,7 +3448,7 @@ GameObject:
   m_Layer: 0
   m_Name: 3
   m_TagString: Untagged
-  m_Icon: {fileID: 7174288486110832750, guid: 0000000000000000d000000000000000, type: 0}
+  m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1

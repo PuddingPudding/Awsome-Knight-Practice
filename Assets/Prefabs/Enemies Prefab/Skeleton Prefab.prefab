@@ -448,7 +448,9 @@ GameObject:
   - component: {fileID: 95052573329258802}
   - component: {fileID: 143594567951400778}
   - component: {fileID: 195923795038500194}
-  m_Layer: 0
+  - component: {fileID: 114621573198924228}
+  - component: {fileID: 114187990158365502}
+  m_Layer: 9
   m_Name: Skeleton Prefab
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1403,6 +1405,32 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &114187990158365502
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1639632157131548}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cb51d03dd16a8c144a6676d77af192e2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_walkPoints:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+--- !u!114 &114621573198924228
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1639632157131548}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b8abc5947b6c9394dafdc14ceab0cd3f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!137 &137493270325026760
 SkinnedMeshRenderer:
   m_ObjectHideFlags: 1
