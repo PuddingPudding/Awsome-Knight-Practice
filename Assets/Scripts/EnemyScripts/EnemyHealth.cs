@@ -5,6 +5,11 @@ using UnityEngine;
 public class EnemyHealth : MonoBehaviour {
     [SerializeField] private float m_fHealth = 100f;
 
+    public float GetHp()
+    {
+        return this.m_fHealth;
+    }
+
     public void TakeDmg(float _fDmg)
     {
         m_fHealth -= _fDmg;

@@ -198,7 +198,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 077cb16e1b47f144d8270efafc76a5d9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_fHP: 100
+  m_fHP: 5
 --- !u!1001 &108376082
 Prefab:
   m_ObjectHideFlags: 0
@@ -2427,6 +2427,16 @@ Prefab:
       propertyPath: m_walkPoints.Array.data[2]
       value: 
       objectReference: {fileID: 1974702647}
+    - target: {fileID: 114187990158365502, guid: f2edba063e55c594a97b560cad427003,
+        type: 2}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 114621573198924228, guid: f2edba063e55c594a97b560cad427003,
+        type: 2}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: f2edba063e55c594a97b560cad427003, type: 2}
   m_IsPrefabParent: 0
@@ -2446,7 +2456,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 09deec545a1826b41b5ca14cce3c51db, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_fHealth: 100
+  m_fHealth: 5
+--- !u!114 &1417597790
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1417597788}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1d10140be9a45e840bafa4df427cae4e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_fDamageAmount: 10
 --- !u!1 &1442487834
 GameObject:
   m_ObjectHideFlags: 0

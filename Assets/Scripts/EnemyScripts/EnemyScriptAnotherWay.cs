@@ -15,6 +15,7 @@ public class EnemyScriptAnotherWay : MonoBehaviour
     private float m_fCurAtkTime;
     private float m_fWaitAtkTime = 1;
     private Vector3 m_nextDestination;
+    private EnemyHealth m_enemyHealth;
 
 
     // Use this for initialization
@@ -23,15 +24,35 @@ public class EnemyScriptAnotherWay : MonoBehaviour
         m_playerTarget = GameObject.FindGameObjectWithTag("Player").transform;
         m_anim = this.GetComponent<Animator>();
         m_navAgent = this.GetComponent<NavMeshAgent>();
+        m_enemyHealth = this.GetComponent<EnemyHealth>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        float fDistance = Vector3.Distance(this.transform.position, m_playerTarget.position);
-        if(fDistance > m_fWalkDis)
+        if(m_enemyHealth.GetHp() > 0)
         {
-            if(m_navAgent.remainingDistance <= 0.5f)
+            this.MoveAndAttack();
+        }
+        else
+        {
+            m_anim.SetBool("Death", true);
+            m_navAgent.enabled = false;
+
+            if (!this.m_anim.IsInTransition(0) && this.m_anim.GetCurrentAnimatorStateInfo(0).IsName("Death")
+                && this.m_anim.GetCurrentAnimatorStateInfo(0).normalizedTime >= 0.95f)
+            {
+                Destroy(this.gameObject, 2f);
+            }
+        }
+    }
+
+    void MoveAndAttack()
+    {
+        float fDistance = Vector3.Distance(this.transform.position, m_playerTarget.position);
+        if (fDistance > m_fWalkDis)
+        {
+            if (m_navAgent.remainingDistance <= 0.5f)
             {
                 m_navAgent.isStopped = false; //已暫停為假，所以還在運作
 
@@ -42,7 +63,7 @@ public class EnemyScriptAnotherWay : MonoBehaviour
                 m_nextDestination = m_walkPoints[m_iWalkIndex].position;
                 m_navAgent.SetDestination(m_nextDestination);
 
-                if(m_iWalkIndex >= m_walkPoints.Length - 1)
+                if (m_iWalkIndex >= m_walkPoints.Length - 1)
                 {
                     m_iWalkIndex = 0;
                 }
@@ -54,7 +75,7 @@ public class EnemyScriptAnotherWay : MonoBehaviour
         }
         else
         {
-            if(fDistance > m_fAtkDis)
+            if (fDistance > m_fAtkDis)
             {
                 m_navAgent.isStopped = false;
 
@@ -73,10 +94,10 @@ public class EnemyScriptAnotherWay : MonoBehaviour
                 Vector3 targetPos = new Vector3(m_playerTarget.position.x, this.transform.position.y
                     , m_playerTarget.position.z);
 
-                this.transform.rotation = Quaternion.Slerp(this.transform.rotation 
+                this.transform.rotation = Quaternion.Slerp(this.transform.rotation
                     , Quaternion.LookRotation(targetPos - this.transform.position), 5 * Time.deltaTime);
 
-                if(m_fCurAtkTime >= m_fWaitAtkTime)
+                if (m_fCurAtkTime >= m_fWaitAtkTime)
                 {
                     int iAtkRange = Random.Range(1, 3);
                     m_anim.SetInteger("Atk", iAtkRange);
