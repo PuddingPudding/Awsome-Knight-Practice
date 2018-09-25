@@ -1,10 +1,12 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class PlayerHealth : MonoBehaviour
 {
     [SerializeField] private float m_fHP = 100f;
+    [SerializeField] private Image m_healthBar;
 
     private bool m_bIsShielded;
 
@@ -40,11 +42,17 @@ public class PlayerHealth : MonoBehaviour
                 }
             }
         }
+        this.m_healthBar.fillAmount = m_fHP / 100;
     }
 
     public void Heal(float _fAmount)
     {
         this.m_fHP += _fAmount;
+        if(m_fHP > 100)
+        {
+            m_fHP = 100;
+        }
         print("玩家目前血量" + m_fHP);
+        this.m_healthBar.fillAmount = m_fHP / 100;
     }
 }
