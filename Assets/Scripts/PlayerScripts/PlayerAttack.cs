@@ -13,6 +13,7 @@ public class PlayerAttack : MonoBehaviour
     [SerializeField] private Image m_imgCD4;
     [SerializeField] private Image m_imgCD5;
     [SerializeField] private Image m_imgCD6;
+    [SerializeField] private MouseScript m_mouseScript;
 
     private int[] m_iArrFadeImg = new int[] { 0, 0, 0, 0, 0, 0 };
     private Animator m_anim;
@@ -114,6 +115,7 @@ public class PlayerAttack : MonoBehaviour
     {
         if(this.m_iArrFadeImg[0] == 1)
         {
+            this.m_mouseScript.ClearCursor();
             if(FadeAndWait(this.m_imgCD1 , 1.0f))
             {
                 this.m_iArrFadeImg[0] = 0;
@@ -121,6 +123,7 @@ public class PlayerAttack : MonoBehaviour
         }
         if (this.m_iArrFadeImg[1] == 1)
         {
+            this.m_mouseScript.ClearCursor();
             if (FadeAndWait(this.m_imgCD2, 1.5f))
             {
                 this.m_iArrFadeImg[1] = 0;
@@ -128,6 +131,7 @@ public class PlayerAttack : MonoBehaviour
         }
         if (this.m_iArrFadeImg[2] == 1)
         {
+            this.m_mouseScript.ClearCursor();
             if (FadeAndWait(this.m_imgCD3, 10))
             {
                 this.m_iArrFadeImg[2] = 0;
@@ -135,6 +139,7 @@ public class PlayerAttack : MonoBehaviour
         }
         if (this.m_iArrFadeImg[3] == 1)
         {
+            this.m_mouseScript.ClearCursor();
             if (FadeAndWait(this.m_imgCD4, 5))
             {
                 this.m_iArrFadeImg[3] = 0;
@@ -142,6 +147,7 @@ public class PlayerAttack : MonoBehaviour
         }
         if (this.m_iArrFadeImg[4] == 1)
         {
+            this.m_mouseScript.ClearCursor();
             if (FadeAndWait(this.m_imgCD5, 3.5f))
             {
                 this.m_iArrFadeImg[4] = 0;
@@ -149,6 +155,7 @@ public class PlayerAttack : MonoBehaviour
         }
         if (this.m_iArrFadeImg[5] == 1)
         {
+            this.m_mouseScript.ClearCursor();
             if (FadeAndWait(this.m_imgCD6, 13))
             {
                 this.m_iArrFadeImg[5] = 0;

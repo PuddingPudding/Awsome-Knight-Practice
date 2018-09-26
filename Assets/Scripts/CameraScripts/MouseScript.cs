@@ -50,8 +50,13 @@ public class MouseScript : MonoBehaviour
         {
             if (Vector3.Distance(this.m_currentMousePoint.transform.position, this.m_player.position) <= 1.1f)
             {
-                this.m_currentMousePoint.SetActive(false);
+                this.ClearCursor();
             }
         }        
+    }
+
+    public void ClearCursor()
+    {
+        this.m_currentMousePoint.SetActive(false);
     }
 }
